@@ -1,4 +1,6 @@
-## 🧩 Adapter Design Pattern
+## 2️⃣ Structural Design Patterns
+---
+### 2.1 Adapter Design Pattern
 
 ---
 
