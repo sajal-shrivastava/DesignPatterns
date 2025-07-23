@@ -1,4 +1,4 @@
-package org.example.structuralpatterns.FacadePattern;
+package org.example.structuralpatterns.FacadePattern.Client;
 
 import org.example.structuralpatterns.FacadePattern.FacadeLayer.HomeTheatreSystem;
 import org.example.structuralpatterns.FacadePattern.SubClasses.DVDPlayer;

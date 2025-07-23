@@ -157,7 +157,7 @@ Or via terminal:
 ```bash
 javac org/example/structuralpatterns/**/*/*.java
 java org.example.structuralpatterns.AdapterPattern.ClientClass
-java org.example.structuralpatterns.FacadePattern.Client
+java org.example.structuralpatterns.FacadePattern.Client.Client
 ```
 
 ---
