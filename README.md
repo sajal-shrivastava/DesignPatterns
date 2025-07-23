@@ -15,6 +15,7 @@ This project demonstrates key **Design Patterns** in Java through practical, rea
 ### 📖 Definition
 
 The **Adapter Design Pattern** is a **structural pattern** that allows objects with **incompatible interfaces** to work together by **wrapping** one of the objects with an adapter class.
+**In Simple Words** The Adapter Design Pattern helps two classes work together even if they have different ways of doing things. It does this by using an adapter — a middle layer that converts one class’s output into a format the other class understands.
 
 ---
 
