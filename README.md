@@ -1,9 +1,3 @@
-# 🎯 Design Patterns in Java – Structural Patterns
-
-This project demonstrates key **Design Patterns** in Java through practical, real-world examples. Each pattern encapsulates a different way of structuring your code to promote flexibility, reusability, and maintainability.
-
----
-
 ## 2️⃣ Structural Design Patterns
 
 ---
@@ -15,7 +9,7 @@ This project demonstrates key **Design Patterns** in Java through practical, rea
 ### 📖 Definition
 
 The **Adapter Design Pattern** is a **structural pattern** that allows objects with **incompatible interfaces** to work together by **wrapping** one of the objects with an adapter class.
-**In Simple Words** The Adapter Design Pattern helps two classes work together even if they have different ways of doing things. It does this by using an adapter — a middle layer that converts one class’s output into a format the other class understands.
+**In Simple Words**: It helps two classes work together even if they have different ways of doing things, using an adapter — a middle layer that converts one class’s output into a format the other understands.
 
 ---
 
@@ -35,14 +29,14 @@ In this project:
 To resolve this mismatch:
 
 * `AdapterImpl` adapts `WeighingMachineBabies` to the `WeighingMachineAdapter` interface.
-* The adapter internally **converts pounds to kilograms** so that the client can consume the expected data format seamlessly.
+* The adapter internally **converts pounds to kilograms** so the client gets the expected format.
 
 ---
 
 ### 🛠️ Key Components
 
 | Class Name               | Role             | Description                             |
-|--------------------------|------------------|-----------------------------------------|
+| ------------------------ | ---------------- | --------------------------------------- |
 | `WeighingMachineBabies`  | Adaptee          | Returns weight in pounds                |
 | `WeighingMachineAdapter` | Target Interface | Expected by the client (returns kg)     |
 | `AdapterImpl`            | Adapter          | Converts pounds to kilograms            |
@@ -53,10 +47,8 @@ To resolve this mismatch:
 ### 📐 Conversion Formula
 
 ```
-
 kilograms = pounds × 0.453592
-
-````
+```
 
 ---
 
@@ -64,7 +56,7 @@ kilograms = pounds × 0.453592
 
 ```bash
 Weight In kg: 20.41164
-````
+```
 
 ---
 
@@ -102,7 +94,7 @@ To simplify their usage:
     * `turnOnTheatre()` → Turns on all devices
     * `turnOffTheatre()` → Turns off all devices
 
-The client only interacts with `HomeTheatreSystem` and doesn’t need to manage each component individually.
+The client interacts only with `HomeTheatreSystem` and not individual components.
 
 ---
 
@@ -121,26 +113,76 @@ The client only interacts with `HomeTheatreSystem` and doesn’t need to manage 
 🧪 **Example Output:**
 
 ```bash
-Press On key and starting watching movie
+Press On key and start watching movie
 DVD Player On
 Projector On
 SoundSystem On
 Home theatre is on
 Press OFF key and turn off home theatre
-Off Player
-Off Projector
-Off SoundSystem
+DVD Player Off
+Projector Off
+SoundSystem Off
 Home theatre is off
 ```
 
 ---
 
+### 2.3 Decorator Design Pattern
+
+---
+
+### 📖 Definition
+
+The **Decorator Design Pattern** is a **structural pattern** that allows you to **dynamically add new behavior or responsibilities** to an object without modifying its code.
+**In Simple Words**: You wrap an object with another object (a decorator) to enhance or modify its behavior.
+
+---
+
+### 🎯 Intent
+
+> Attach additional responsibilities to an object dynamically. Decorators provide a flexible alternative to subclassing for extending functionality.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* `Pizza` is the core component interface.
+* `FarmhousePizza` is a concrete implementation.
+* `CheeseDecorator`, `OliveDecorator`, etc., are decorators that add toppings dynamically without changing the original pizza code.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name        | Role                | Description                           |
+| ----------------- | ------------------- | ------------------------------------- |
+| `Pizza`           | Component           | The core abstraction                  |
+| `FarmhousePizza`  | Concrete Component  | The base pizza                        |
+| `Decorator`       | Decorator Interface | Implements Pizza, wraps another Pizza |
+| `CheeseDecorator` | Concrete Decorator  | Adds cheese topping                   |
+| `PizzaStore`      | Client              | Builds pizza using decorators         |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+Pizza's Cost: 320
+```
+
+*Here, base pizza = ₹300 and cheese topping = ₹20.*
+
+---
+
 ## 🧠 Summary
 
-| Pattern | Intent                                    | Simplifies                                 |
-| ------- | ----------------------------------------- | ------------------------------------------ |
-| Adapter | Convert one interface to another          | Communication between incompatible classes |
-| Facade  | Provide a unified interface to subsystems | Subsystem usage for clients                |
+| Pattern   | Intent                                    | Simplifies                                 |
+| --------- | ----------------------------------------- | ------------------------------------------ |
+| Adapter   | Convert one interface to another          | Communication between incompatible classes |
+| Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                |
+| Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object   |
 
 ---
 
@@ -152,6 +194,7 @@ Home theatre is off
 
     * `ClientClass` (for Adapter)
     * `Client` (for Facade)
+    * `PizzaStore` (for Decorator)
 
 Or via terminal:
 
@@ -159,6 +202,7 @@ Or via terminal:
 javac org/example/structuralpatterns/**/*/*.java
 java org.example.structuralpatterns.AdapterPattern.ClientClass
 java org.example.structuralpatterns.FacadePattern.Client.Client
+java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
 ```
 
 ---
@@ -168,4 +212,3 @@ java org.example.structuralpatterns.FacadePattern.Client.Client
 Sajal Shrivastava
 
 ---
-
