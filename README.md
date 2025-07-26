@@ -1,3 +1,5 @@
+---
+
 ## 2️⃣ Structural Design Patterns
 
 ---
@@ -8,9 +10,10 @@
 
 ### 📖 Definition
 
-The **Adapter Design Pattern** is a **structural pattern** that allows objects with **incompatible interfaces** to work together by **wrapping** one of the objects with an adapter class.
-**In Simple Words**: It helps two classes work together even if they have different ways of doing things, using an adapter — a middle layer that converts one class’s output into a format the other understands.
+The Adapter Design Pattern is a structural pattern that allows objects with incompatible interfaces to work together by wrapping one of the objects with an adapter class.
 
+🗣️ In Simple Words:
+It acts like a converter or translator between two classes that can’t understand each other. The adapter makes them compatible by converting one format into another.
 ---
 
 ### 🎯 Intent
@@ -66,8 +69,10 @@ Weight In kg: 20.41164
 
 ### 📖 Definition
 
-The **Facade Design Pattern** is a **structural pattern** that provides a **simplified interface** to a complex subsystem. It hides the complexity of the system by encapsulating it behind a single unified interface.
+The Facade Design Pattern is a structural pattern that provides a simplified interface to a complex subsystem. It hides the complexity of the system by encapsulating it behind a single unified interface.
 
+🗣️ In Simple Words:
+It’s like a remote control — you press one button and many things happen behind the scenes. You don’t need to know the internal complexities.
 ---
 
 ### 🎯 Intent
@@ -133,9 +138,10 @@ Home theatre is off
 
 ### 📖 Definition
 
-The **Decorator Design Pattern** is a **structural pattern** that allows you to **dynamically add new behavior or responsibilities** to an object without modifying its code.
-**In Simple Words**: You wrap an object with another object (a decorator) to enhance or modify its behavior.
+The Decorator Design Pattern is a structural pattern that allows you to dynamically add new behavior or responsibilities to an object without modifying its code.
 
+🗣️ In Simple Words:
+It’s like topping a pizza — you start with a plain pizza and wrap it with toppings (decorators) one by one, without touching the base pizza code.
 ---
 
 ### 🎯 Intent
@@ -176,6 +182,64 @@ Pizza's Cost: 320
 
 ---
 
+### 2.4 Composite Design Pattern
+
+---
+
+### 📖 Definition
+
+The Composite Design Pattern is a structural pattern used to treat individual objects and groups of objects uniformly by building a tree-like structure.
+
+🗣️ In Simple Words:
+It treats single items and collections of items the same way. For example, a number or a whole expression like (5 + (6 * 7)) can be evaluated using the same interface.
+
+
+---
+
+### 🎯 Intent
+
+> Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions uniformly.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* The calculator evaluates arithmetic expressions using a tree structure.
+* Leaf nodes are simple numbers (`Number` class).
+* Composite nodes are operations (`Expression` class) like Add, Subtract, Multiply, Divide.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name             | Role      | Description                                         |
+| ---------------------- | --------- | --------------------------------------------------- |
+| `ArithmeticExpression` | Component | Interface with `evaluate()` method                  |
+| `Number`               | Leaf      | Represents a single integer value                   |
+| `Expression`           | Composite | Represents a binary operation (ADD, MULTIPLY, etc.) |
+| `Operation`            | Enum      | Specifies the type of operation                     |
+| `ClientCalculator`     | Client    | Builds and evaluates the expression tree            |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+Addition result  11
+Add Multiply Result  47
+```
+
+📌 In code:
+
+```java
+// (5 + 6) → 11
+// (6 * 7) + 5 → 47
+```
+
+---
+
 ## 🧠 Summary
 
 | Pattern   | Intent                                    | Simplifies                                 |
@@ -183,6 +247,7 @@ Pizza's Cost: 320
 | Adapter   | Convert one interface to another          | Communication between incompatible classes |
 | Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                |
 | Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object   |
+| Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)  |
 
 ---
 
@@ -195,14 +260,16 @@ Pizza's Cost: 320
     * `ClientClass` (for Adapter)
     * `Client` (for Facade)
     * `PizzaStore` (for Decorator)
+    * `ClientCalculator` (for Composite)
 
 Or via terminal:
 
 ```bash
 javac org/example/structuralpatterns/**/*/*.java
-java org.example.structuralpatterns.AdapterPattern.ClientClass
+java org.example.structuralpatterns.AdapterPattern.Client.ClientClass
 java org.example.structuralpatterns.FacadePattern.Client.Client
 java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
+java org.example.structuralpatterns.CompositePattern.Client.ClientCalculator
 ```
 
 ---
