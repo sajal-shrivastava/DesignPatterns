@@ -348,6 +348,44 @@ Exhales Carbondioxide
 
 ---
 
+3️⃣ Behavioral Design Patterns
+
+3.1 Iterator Design Pattern
+
+📖 Definition
+The Iterator Design Pattern provides a way to access the elements of a collection sequentially without exposing the underlying representation.
+🗣️ In Simple Words:
+It’s like a TV remote for your collection — it helps you move through the items one by one without knowing how they are stored.
+
+🎯 Intent
+Provide a standard way to iterate over a collection of objects.
+
+🔧 Example in This Project
+In this example, we simulate a book collection. Instead of giving direct access to the list of books, we provide a BookIterator which allows you to go through the collection safely and uniformly.
+* Aggregate — Interface for creating an iterator.
+* ConcreteAggregate — Implements Aggregate and holds the book collection.
+* BookIterator — Interface for the iterator.
+* ConcreteIterator — Concrete implementation of the iterator.
+* Book — The object we are iterating over.
+* ClientMain — Uses the iterator to access books.
+
+🛠️ Key Components
+Class Name	Role	Description
+Aggregate	Abstraction	Defines interface to create an iterator
+ConcreteAggregate	Collection	Holds a list of Book and returns a BookIterator
+BookIterator	Iterator Interface	Defines hasNext() and next()
+ConcreteIterator	Iterator	Implements the iteration logic
+Book	Element	Represents a book object
+ClientMain	Client	Demonstrates iteration using BookIterator
+🧪 Example Output:
+Book(title=Design Patterns, author=Erich Gamma)
+Book(title=The Pragmatic Programmer, author=Andy Hunt)
+Book(title=Refactoring, author=Martin Fowler)
+Book(title=Java Concurrency in Practice, author=Brian Goetz)
+Book(title=Head First Design Patterns, author=Eric Freeman)
+Book(title=Domain-Driven Design, author=Eric Evans)
+
+
 ## 🛠️ How to Run
 
 1. Clone or download the project.
@@ -360,6 +398,7 @@ Exhales Carbondioxide
     * `ClientCalculator` (for Composite)
     * `ClientMain` (for Proxy)
     * `ClientMain` (for Bridge)
+    * `ClientMain` (for Iterator)
 
 Or via terminal:
 
@@ -371,6 +410,7 @@ java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
 java org.example.structuralpatterns.CompositePattern.Client.ClientCalculator
 java org.example.structuralpatterns.ProxyPattern.Client.ClientMain
 java org.example.structuralpatterns.BridgePattern.Client.ClientMain
+java org.example.behavioralpatterns.iteratorpattern.client.ClientMain
 ```
 
 ---
