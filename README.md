@@ -1,5 +1,3 @@
----
-
 ## 2️⃣ Structural Design Patterns
 
 ---
@@ -12,9 +10,7 @@
 
 The Adapter Design Pattern is a structural pattern that allows objects with incompatible interfaces to work together by wrapping one of the objects with an adapter class.
 
-🗣️ In Simple Words:
-It acts like a converter or translator between two classes that can’t understand each other. The adapter makes them compatible by converting one format into another.
----
+## 🗣️ In Simple Words: It acts like a converter or translator between two classes that can’t understand each other. The adapter makes them compatible by converting one format into another.
 
 ### 🎯 Intent
 
@@ -71,9 +67,7 @@ Weight In kg: 20.41164
 
 The Facade Design Pattern is a structural pattern that provides a simplified interface to a complex subsystem. It hides the complexity of the system by encapsulating it behind a single unified interface.
 
-🗣️ In Simple Words:
-It’s like a remote control — you press one button and many things happen behind the scenes. You don’t need to know the internal complexities.
----
+## 🗣️ In Simple Words: It’s like a remote control — you press one button and many things happen behind the scenes. You don’t need to know the internal complexities.
 
 ### 🎯 Intent
 
@@ -140,9 +134,7 @@ Home theatre is off
 
 The Decorator Design Pattern is a structural pattern that allows you to dynamically add new behavior or responsibilities to an object without modifying its code.
 
-🗣️ In Simple Words:
-It’s like topping a pizza — you start with a plain pizza and wrap it with toppings (decorators) one by one, without touching the base pizza code.
----
+## 🗣️ In Simple Words: It’s like topping a pizza — you start with a plain pizza and wrap it with toppings (decorators) one by one, without touching the base pizza code.
 
 ### 🎯 Intent
 
@@ -190,9 +182,7 @@ Pizza's Cost: 320
 
 The Composite Design Pattern is a structural pattern used to treat individual objects and groups of objects uniformly by building a tree-like structure.
 
-🗣️ In Simple Words:
-It treats single items and collections of items the same way. For example, a number or a whole expression like (5 + (6 * 7)) can be evaluated using the same interface.
-
+🗣️ In Simple Words: It treats single items and collections of items the same way. For example, a number or a whole expression like (5 + (6 \* 7)) can be evaluated using the same interface.
 
 ---
 
@@ -240,6 +230,65 @@ Add Multiply Result  47
 
 ---
 
+### 2.5 Proxy Design Pattern
+
+---
+
+### 📖 Definition
+
+The Proxy Design Pattern is a structural pattern that provides a surrogate or placeholder for another object to control access to it.
+
+## 🗣️ In Simple Words: It’s like a security guard. Instead of accessing the object directly, you go through the proxy which checks permissions and then forwards the request.
+
+---
+
+### 🎯 Intent
+
+> Provide a surrogate or placeholder for another object to control access to it.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* `EmployeeDao` is the main service interface.
+* `EmployeeImpl` is the real object doing the work.
+* `EmployeeProxy` controls access to `EmployeeImpl` based on the user’s role.
+
+For example:
+
+* Only `ADMIN` can create or delete an employee.
+* `USER` can only view.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name      | Role        | Description                         |
+| --------------- | ----------- | ----------------------------------- |
+| `EmployeeDao`   | Subject     | Interface defining operations       |
+| `EmployeeImpl`  | RealSubject | Actual implementation of operations |
+| `EmployeeProxy` | Proxy       | Controls access to `EmployeeImpl`   |
+| `ClientMain`    | Client      | Calls operations via Proxy          |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+Employee Object Deleted
+Employee Object Employee(name=Sajal, address=India)
+```
+
+If an unauthorized user tries to perform a restricted action:
+
+```bash
+Exception Encountered
+```
+
+---
+
 ## 🧠 Summary
 
 | Pattern   | Intent                                    | Simplifies                                 |
@@ -248,6 +297,7 @@ Add Multiply Result  47
 | Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                |
 | Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object   |
 | Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)  |
+| Proxy     | Control access to real objects            | Add security, lazy init, logging etc.      |
 
 ---
 
@@ -261,6 +311,7 @@ Add Multiply Result  47
     * `Client` (for Facade)
     * `PizzaStore` (for Decorator)
     * `ClientCalculator` (for Composite)
+    * `ClientMain` (for Proxy)
 
 Or via terminal:
 
@@ -270,6 +321,7 @@ java org.example.structuralpatterns.AdapterPattern.Client.ClientClass
 java org.example.structuralpatterns.FacadePattern.Client.Client
 java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
 java org.example.structuralpatterns.CompositePattern.Client.ClientCalculator
+java org.example.structuralpatterns.ProxyPattern.Client.ClientMain
 ```
 
 ---
