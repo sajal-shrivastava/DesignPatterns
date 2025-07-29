@@ -413,35 +413,6 @@ Book(title=Domain-Driven Design, author=Eric Evans)
 
 ---
 
-## 🛠️ How to Run
-
-1. Clone the repository:
-
-   ```bash
-   git clone https://github.com/your-repo/design-patterns.git
-   ```
-
-2. Navigate to the project directory:
-
-   ```bash
-   cd design-patterns
-   ```
-
-3. Open the project in your favorite IDE (e.g., IntelliJ IDEA or Eclipse).
-
-4. To run individual patterns:
-
-    * For structural patterns: run the corresponding main class in the respective package (e.g., `AdapterClient`, `ProxyClient` etc.).
-    * For the Iterator design pattern: run `ClientMain` inside:
-
-      ```
-      org.example.behavioralpatterns.iteratorpattern.client.ClientMain
-      ```
-
-5. Observe the output on the console for each pattern demonstration.
-
----
-
 
 ## 🛠️ How to Run
 
