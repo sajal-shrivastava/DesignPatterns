@@ -184,8 +184,6 @@ The Composite Design Pattern is a structural pattern used to treat individual ob
 
 🗣️ In Simple Words: It treats single items and collections of items the same way. For example, a number or a whole expression like (5 + (6 \* 7)) can be evaluated using the same interface.
 
----
-
 ### 🎯 Intent
 
 > Compose objects into tree structures to represent part-whole hierarchies. Composite lets clients treat individual objects and compositions uniformly.
@@ -240,8 +238,6 @@ The Proxy Design Pattern is a structural pattern that provides a surrogate or pl
 
 ## 🗣️ In Simple Words: It’s like a security guard. Instead of accessing the object directly, you go through the proxy which checks permissions and then forwards the request.
 
----
-
 ### 🎯 Intent
 
 > Provide a surrogate or placeholder for another object to control access to it.
@@ -289,6 +285,56 @@ Exception Encountered
 
 ---
 
+### 2.6 Bridge Design Pattern
+
+---
+
+### 📖 Definition
+
+The Bridge Design Pattern is a structural pattern that decouples an abstraction from its implementation so that the two can vary independently.
+
+## 🗣️ In Simple Words: It's like separating the remote (interface) from the TV (implementation) so both can change independently.
+
+### 🎯 Intent
+
+> Decouple abstraction from implementation.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* The abstraction is `LivingThings`, which defines a breathing process.
+* Implementations include `LandBreatheImplementation`, `TreeBasedImplementation`, and `WaterBasedImplementation`.
+* `Dogs` is a refined abstraction using `LandBreatheImplementation`.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name                  | Role               | Description                                    |
+| --------------------------- | ------------------ | ---------------------------------------------- |
+| `LivingThings`              | Abstraction        | Base class containing reference to implementor |
+| `BreatheProcessImplementor` | Implementor        | Interface defining `breatheProcess()`          |
+| `LandBreatheImplementation` | ConcreteImpl       | Breathe through nose                           |
+| `TreeBasedImplementation`   | ConcreteImpl       | Breathe through leaves                         |
+| `WaterBasedImplementation`  | ConcreteImpl       | Breathe through gills                          |
+| `Dogs`                      | RefinedAbstraction | Extends LivingThings using specific behavior   |
+| `ClientMain`                | Client             | Instantiates abstraction with implementation   |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+Breathe Through Nose
+Inhales Oxygen
+Exhales Carbondioxide
+```
+
+---
+
 ## 🧠 Summary
 
 | Pattern   | Intent                                    | Simplifies                                 |
@@ -298,6 +344,7 @@ Exception Encountered
 | Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object   |
 | Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)  |
 | Proxy     | Control access to real objects            | Add security, lazy init, logging etc.      |
+| Bridge    | Decouple abstraction from implementation  | Vary abstraction and implementation freely |
 
 ---
 
@@ -312,6 +359,7 @@ Exception Encountered
     * `PizzaStore` (for Decorator)
     * `ClientCalculator` (for Composite)
     * `ClientMain` (for Proxy)
+    * `ClientMain` (for Bridge)
 
 Or via terminal:
 
@@ -322,6 +370,7 @@ java org.example.structuralpatterns.FacadePattern.Client.Client
 java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
 java org.example.structuralpatterns.CompositePattern.Client.ClientCalculator
 java org.example.structuralpatterns.ProxyPattern.Client.ClientMain
+java org.example.structuralpatterns.BridgePattern.Client.ClientMain
 ```
 
 ---
@@ -329,5 +378,3 @@ java org.example.structuralpatterns.ProxyPattern.Client.ClientMain
 ## 👨‍💻 Author
 
 Sajal Shrivastava
-
----
