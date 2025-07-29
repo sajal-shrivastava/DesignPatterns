@@ -335,47 +335,6 @@ Exhales Carbondioxide
 
 ---
 
-## 🧠 Summary
-
-| Pattern   | Intent                                    | Simplifies                                 |
-| --------- | ----------------------------------------- | ------------------------------------------ |
-| Adapter   | Convert one interface to another          | Communication between incompatible classes |
-| Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                |
-| Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object   |
-| Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)  |
-| Proxy     | Control access to real objects            | Add security, lazy init, logging etc.      |
-| Bridge    | Decouple abstraction from implementation  | Vary abstraction and implementation freely |
-
----
-
-## 2️⃣ Structural Design Patterns
-
----
-
-### 2.1 Adapter Design Pattern
-
-...
-
-\[✅ *This section remains unchanged and has been retained in full.*]
-
----
-
-### 2.5 Proxy Design Pattern
-
-...
-
-\[✅ *This section remains unchanged and has been retained in full.*]
-
----
-
-### 2.6 Bridge Design Pattern
-
-...
-
-\[✅ *This section remains unchanged and has been retained in full.*]
-
----
-
 ## 3️⃣ Behavioral Design Patterns
 
 ---
@@ -436,6 +395,50 @@ Book(title=Java Concurrency in Practice, author=Brian Goetz)
 Book(title=Head First Design Patterns, author=Eric Freeman)
 Book(title=Domain-Driven Design, author=Eric Evans)
 ```
+
+---
+
+
+## 🧠 Summary
+
+| Pattern   | Intent                                    | Simplifies                                         |
+| --------- | ----------------------------------------- | -------------------------------------------------- |
+| Adapter   | Convert one interface to another          | Communication between incompatible classes         |
+| Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                        |
+| Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object           |
+| Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)          |
+| Proxy     | Control access to real objects            | Add security, lazy init, logging etc.              |
+| Bridge    | Decouple abstraction from implementation  | Change implementation without touching abstraction |
+| Iterator  | Sequential access to collection elements  | Looping without exposing internal structure        |
+
+---
+
+## 🛠️ How to Run
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/your-repo/design-patterns.git
+   ```
+
+2. Navigate to the project directory:
+
+   ```bash
+   cd design-patterns
+   ```
+
+3. Open the project in your favorite IDE (e.g., IntelliJ IDEA or Eclipse).
+
+4. To run individual patterns:
+
+    * For structural patterns: run the corresponding main class in the respective package (e.g., `AdapterClient`, `ProxyClient` etc.).
+    * For the Iterator design pattern: run `ClientMain` inside:
+
+      ```
+      org.example.behavioralpatterns.iteratorpattern.client.ClientMain
+      ```
+
+5. Observe the output on the console for each pattern demonstration.
 
 ---
 
