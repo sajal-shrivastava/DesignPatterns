@@ -1,3 +1,125 @@
+## 1️⃣ Creational Design Patterns
+
+---
+
+### 1.1 Factory Design Pattern
+
+---
+
+### 📖 Definition
+
+The Factory Design Pattern is a creational pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created.
+
+## 🗣️ In Simple Words: Instead of creating objects using `new`, you use a factory method to get the object you need. It hides the creation logic from the client.
+
+---
+
+### 🎯 Intent
+
+> Define an interface for creating an object, but let subclasses decide which class to instantiate.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* `Vehicle` is the common interface.
+* `Bike` and `Car` are concrete implementations.
+* `VehicleFactory` is responsible for creating instances based on the input type.
+* The client simply calls the factory method and uses the returned `Vehicle`.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name       | Role              | Description                                |
+| ---------------- | ----------------- | ------------------------------------------ |
+| `Vehicle`        | Product Interface | Common interface for all vehicle types     |
+| `Bike`           | Concrete Product  | Implements Vehicle                         |
+| `Car`            | Concrete Product  | Implements Vehicle                         |
+| `VehicleFactory` | Factory           | Contains logic to instantiate correct type |
+| `Client`         | Client            | Calls the factory and uses returned object |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+Bike Started
+Car has started
+```
+
+📌 In code:
+
+```java
+Vehicle vehicle = VehicleFactory.getVehicleObject("BIKE");
+Vehicle vehicle1 = VehicleFactory.getVehicleObject("CAR");
+
+//vehicle.start();  // Output: Bike Started
+//vehicle1.start(); // Output: Car has started
+```
+
+---
+
+### 1.2 Singleton Design Pattern
+
+---
+
+### 📖 Definition
+
+The Singleton Design Pattern is a creational pattern that ensures a class has only one instance and provides a global point of access to it.
+
+## 🗣️ In Simple Words: It’s like having a single president of a country — no matter how many people ask for the president, they always get the same one.
+
+---
+
+### 🎯 Intent
+
+> Ensure a class has only one instance and provide a global point of access to it.
+
+---
+
+### 🔧 Example in This Project
+
+In this project:
+
+* `SingletonPattern` demonstrates the **eager initialization with synchronization**.
+* `SingletonWithSynchronizedBlock` demonstrates the **double-checked locking** approach.
+* Both implementations ensure that only one instance of the class is created, even in multithreaded environments.
+
+---
+
+### 🛠️ Key Components
+
+| Class Name                       | Role      | Description                                        |
+| -------------------------------- | --------- | -------------------------------------------------- |
+| `SingletonPattern`               | Singleton | Uses synchronized method to ensure thread safety   |
+| `SingletonWithSynchronizedBlock` | Singleton | Uses synchronized block and double-checked locking |
+| `Client`                         | Client    | Calls the `getSingletonInstance()` multiple times  |
+
+---
+
+🧪 **Example Output:**
+
+```bash
+org.example.creationalpatterns.singletonpattern.scenarios.SingletonPattern@2c7b84de
+org.example.creationalpatterns.singletonpattern.scenarios.SingletonPattern@2c7b84de
+org.example.creationalpatterns.singletonpattern.scenarios.SingletonPattern@2c7b84de
+org.example.creationalpatterns.singletonpattern.scenarios.SingletonPattern@2c7b84de
+```
+
+📌 In code:
+
+```java
+SingletonPattern instance1 = SingletonPattern.getSingletonInstance();
+SingletonPattern instance2 = SingletonPattern.getSingletonInstance();
+// Both instances point to the same object
+```
+
+---
+
+
 ## 2️⃣ Structural Design Patterns
 
 ---
@@ -401,18 +523,19 @@ Book(title=Domain-Driven Design, author=Eric Evans)
 
 ## 🧠 Summary
 
-| Pattern   | Intent                                    | Simplifies                                         |
-| --------- | ----------------------------------------- | -------------------------------------------------- |
-| Adapter   | Convert one interface to another          | Communication between incompatible classes         |
-| Facade    | Provide a unified interface to subsystems | Subsystem usage for clients                        |
-| Decorator | Add functionality without changing code   | Dynamically enrich behavior of an object           |
-| Composite | Treat group of objects like single object | Part-whole hierarchies (e.g., tree-based)          |
-| Proxy     | Control access to real objects            | Add security, lazy init, logging etc.              |
-| Bridge    | Decouple abstraction from implementation  | Change implementation without touching abstraction |
-| Iterator  | Sequential access to collection elements  | Looping without exposing internal structure        |
+| Pattern   | Type       | Intent                                     | Simplifies                                         |
+| --------- | ---------- | ------------------------------------------ | -------------------------------------------------- |
+| Factory   | Creational | Instantiate objects without exposing `new` | Decouples object creation logic from client        |
+| Singleton | Creational | One instance, global access                | Resource management, caching, configuration        |
+| Adapter   | Structural | Convert one interface to another           | Communication between incompatible classes         |
+| Facade    | Structural | Provide a unified interface to subsystems  | Subsystem usage for clients                        |
+| Decorator | Structural | Add functionality without changing code    | Dynamically enrich behavior of an object           |
+| Composite | Structural | Treat group of objects like single object  | Part-whole hierarchies (e.g., tree-based)          |
+| Proxy     | Structural | Control access to real objects             | Add security, lazy init, logging etc.              |
+| Bridge    | Structural | Decouple abstraction from implementation   | Change implementation without touching abstraction |
+| Iterator  | Behavioral | Sequential access to collection elements   | Looping without exposing internal structure        |
 
 ---
-
 
 ## 🛠️ How to Run
 
@@ -420,6 +543,8 @@ Book(title=Domain-Driven Design, author=Eric Evans)
 2. Open in your preferred Java IDE (e.g., IntelliJ, Eclipse).
 3. Compile and run the `main()` methods in:
 
+    * `Client` (for Factory)
+    * `Client` (for Singleton)
     * `ClientClass` (for Adapter)
     * `Client` (for Facade)
     * `PizzaStore` (for Decorator)
@@ -431,6 +556,10 @@ Book(title=Domain-Driven Design, author=Eric Evans)
 Or via terminal:
 
 ```bash
+javac org/example/creationalpatterns/**/*/*.java
+java org.example.creationalpatterns.factorypattern.client.Client
+java org.example.creationalpatterns.singletonpattern.client.Client
+
 javac org/example/structuralpatterns/**/*/*.java
 java org.example.structuralpatterns.AdapterPattern.Client.ClientClass
 java org.example.structuralpatterns.FacadePattern.Client.Client
@@ -438,11 +567,12 @@ java org.example.structuralpatterns.DecoratorPattern.Client.PizzaStore
 java org.example.structuralpatterns.CompositePattern.Client.ClientCalculator
 java org.example.structuralpatterns.ProxyPattern.Client.ClientMain
 java org.example.structuralpatterns.BridgePattern.Client.ClientMain
+
+javac org/example/behavioralpatterns/**/*/*.java
 java org.example.behavioralpatterns.iteratorpattern.client.ClientMain
 ```
 
 ---
-
 ## 👨‍💻 Author
 
 Sajal Shrivastava
